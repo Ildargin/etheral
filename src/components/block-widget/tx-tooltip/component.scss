@@ -1,0 +1,101 @@
+@use 'src/variables' as v;
+
+.txbit-container {
+  display: inline-block;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  max-width: 16px;
+  max-height: 16px;
+  margin: 0 9px 9px 0;
+  list-style: none;
+
+  &:hover {
+    z-index: 1000;
+  }
+
+  .txbit-tooltip {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    z-index: -1;
+    padding: 16px 14px;
+    width: 230px;
+    height: 66px;
+    max-height: none;
+    max-width: none;
+    border-radius: 10px;
+    background: white;
+
+    transform: translate(16px, -32px);
+    animation: txbit-tooltip-appear 100ms linear forwards;
+
+    @keyframes txbit-tooltip-appear {
+      from {
+        transform: translate(16px, -32px);
+        opacity: 0;
+      }
+      to {
+        transform: translate(40px, -32px);
+        opacity: 1;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 16px;
+      width: 16px;
+      background: white;
+      transform: translate(-20px, 0) rotate(45deg);
+    }
+
+    .txbit-tooltip-field,
+    .txbit-tooltip-value {
+      font-size: 12px;
+      line-height: normal;
+    }
+
+    .txbit-tooltip-field {
+      color: #666666;
+    }
+
+    .txbit-tooltip-value {
+      color: v.$calm-blue;
+    }
+
+    .txbit-tooltip-top,
+    .txbit-tooltip-bottom {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .txbit-tooltip-bottom {
+      > div {
+        width: 100%;
+        .txbit-tooltip-value {
+          display: flex;
+          justify-content: space-between;
+
+          > div:nth-child(2) {
+            color: #666666;
+          }
+        }
+      }
+    }
+  }
+
+  .txbit-block {
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    background-color: whitesmoke;
+
+    &:hover {
+      background: v.$calm-blue;
+    }
+  }
+}

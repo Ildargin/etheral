@@ -1,0 +1,27 @@
+/*
+ * Colors.
+ */
+
+$lightest: var(--color-lightest);
+$light: var(--color-light);
+$light-dull: var(--color-light-dull);
+$darkish: var(--color-darkish);
+$dark: var(--color-dark);
+$dark-hover: var(--color-dark-hover);
+$darker: var(--color-darker);
+$darkest: var(--color-darkest);
+$active-background: var(--color-active-background);
+$active-highlight: var(--color-active-highlight);
+$unread-background: var(--color-unread-background);
+$unread-highlight: var(--color-unread-highlight);
+$calm-blue: var(--color-calm-blue);
+
+/*
+ * Font weights.
+ */
+
+$w-light: 300;
+$w-regular: 400;
+$w-medium: 500;
+$w-semibold: 600;
+$w-bold: 700;
