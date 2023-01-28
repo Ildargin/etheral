@@ -1,10 +1,11 @@
-type Node = {
+export type Node = {
   id: string
   label: string | null
   color: string
 }
 
-type Edge = {
+export type Edge = {
+  id: string | number
   from: string
   to: string
 }

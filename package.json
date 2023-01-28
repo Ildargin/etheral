@@ -1,79 +1,78 @@
 {
-  "name": "etheral",
-  "version": "1.0.0",
-  "description": "Visualize ethereum blockchain for information about transactions, blocks, and addresses.",
-  "author": "Ildar Gainatullin <ildar.gainatullin@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Ildargin/etheral.git"
-  },
-  "homepage": "https://github.com/Ildargin/etheral.git#readme",
-  "keywords": [
-    "ethereum",
-    "blockchain"
-  ],
-  "license": "MIT",
-  "private": false,
-  "scripts": {
-    "dev": "vite",
-    "clean": "rimraf dist",
-    "build": "vite build",
-    "lint": "eslint . --ext js,ts,jsx,tsx",
-    "prettier": "prettier -w .",
-    "prepare": "husky install"
-  },
-  "nano-staged": {
-    "*.{js,ts,jsx,tsx}": [
-      "prettier -w",
-      "eslint --ext js,ts,jsx,tsx"
-    ]
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^16.2.3",
-    "@commitlint/config-conventional": "^16.2.1",
-    "@trivago/prettier-plugin-sort-imports": "4.0.0",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "@types/react-transition-group": "^4.4.4",
-    "@typescript-eslint/eslint-plugin": "^5.14.0",
-    "@typescript-eslint/parser": "^5.14.0",
-    "@vitejs/plugin-react": "^1.3.0",
-    "eslint": "^8.10.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-airbnb-typescript": "^16.1.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-import-resolver-typescript": "^2.5.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.29.3",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "happy-dom": "^2.55.0",
-    "husky": "7.0.4",
-    "nano-staged": "0.6.0",
-    "prettier": "^2.5.1",
-    "rimraf": "^3.0.2",
-    "sass": "^1.49.9",
-    "typescript": "4.5.5",
-    "vite": "^2.9.1",
-    "vitest": "^0.8.2"
-  },
-  "dependencies": {
-    "@types/uuid": "9.0.0",
-    "clsx": "^1.1.1",
-    "cytoscape": "3.23.0",
-    "cytoscape-dom-node": "1.1.1",
-    "cytoscape-react": "4.0.0",
-    "ethers": "5.7.2",
-    "moment": "^2.29.2",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-graph-vis": "1.0.7",
-    "react-jazzicon": "^1.0.3",
-    "react-loading-skeleton": "^3.0.3",
-    "react-query": "3.39.2",
-    "react-router-dom": "^6.3.0",
-    "react-transition-group": "^4.4.2",
-    "uuid": "9.0.0"
-  }
+    "name": "etheral",
+    "version": "1.0.0",
+    "description": "Visualize ethereum blockchain for information about transactions, blocks, and addresses.",
+    "author": "Ildar Gainatullin <ildar.gainatullin@gmail.com>",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Ildargin/etheral.git"
+    },
+    "homepage": "https://github.com/Ildargin/etheral.git#readme",
+    "keywords": [
+        "ethereum",
+        "blockchain"
+    ],
+    "license": "MIT",
+    "private": false,
+    "scripts": {
+        "dev": "vite",
+        "clean": "rimraf dist",
+        "build": "vite build",
+        "lint": "eslint . --ext js,ts,jsx,tsx",
+        "prettier": "prettier -w .",
+        "prepare": "husky install"
+    },
+    "nano-staged": {
+        "*.{js,ts,jsx,tsx}": [
+            "prettier -w",
+            "eslint --ext js,ts,jsx,tsx"
+        ]
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^16.2.3",
+        "@commitlint/config-conventional": "^16.2.1",
+        "@trivago/prettier-plugin-sort-imports": "4.0.0",
+        "@types/react": "^18.0.0",
+        "@types/react-dom": "^18.0.0",
+        "@types/react-transition-group": "^4.4.4",
+        "@typescript-eslint/eslint-plugin": "^5.14.0",
+        "@typescript-eslint/parser": "^5.14.0",
+        "@vitejs/plugin-react": "^1.3.0",
+        "eslint": "^8.10.0",
+        "eslint-config-airbnb": "^19.0.4",
+        "eslint-config-airbnb-typescript": "^16.1.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-import-resolver-typescript": "^2.5.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-jsx-a11y": "^6.5.1",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-react": "^7.29.3",
+        "eslint-plugin-react-hooks": "^4.3.0",
+        "happy-dom": "^2.55.0",
+        "husky": "7.0.4",
+        "nano-staged": "0.6.0",
+        "prettier": "^2.5.1",
+        "rimraf": "^3.0.2",
+        "sass": "^1.49.9",
+        "typescript": "4.5.5",
+        "vite": "^2.9.1",
+        "vitest": "^0.8.2"
+    },
+    "dependencies": {
+        "@types/uuid": "9.0.0",
+        "clsx": "^1.1.1",
+        "cytoscape": "3.23.0",
+        "cytoscape-dom-node": "1.1.1",
+        "cytoscape-react": "4.0.0",
+        "ethers": "5.7.2",
+        "moment": "^2.29.2",
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0",
+        "react-graph-vis": "1.0.7",
+        "react-jazzicon": "^1.0.3",
+        "react-loading-skeleton": "^3.0.3",
+        "react-router-dom": "^6.3.0",
+        "react-transition-group": "^4.4.2",
+        "uuid": "9.0.0"
+    }
 }

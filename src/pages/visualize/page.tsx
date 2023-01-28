@@ -1,9 +1,7 @@
-import { fetchTxs, getGraphFromData } from './visualize.api'
-import type { Tx } from './visualize.api'
 import { useEffect, useState } from 'react'
 import type { ChangeEvent } from 'react'
-import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
+import { concatGraphs, fetchTxs, getGraphFromTxs } from '../../api'
 import { Button, Graph, Input } from '../../components'
 import type { GraphType } from '../../components'
 import { useGetAddress } from '../../hooks'
@@ -12,40 +10,43 @@ import './page.scss'
 
 export const Visualize = () => {
   const { id } = useParams()
-  const { data: rawData } = useQuery('txs', fetchTxs(id))
-  const [data, setData] = useState<Tx[]>([])
-  const [lastClickedNode, setLastClickedNode] = useState(id || '')
+  const [lastClickedNode, setLastClickedNode] = useState('')
   const [graph, setGraph] = useState<GraphType>({ nodes: [], edges: [] })
-  const [displayTrashhold, setDisplayTrashhold] = useState('100')
-
+  const [displayTrashhold, setDisplayTrashhold] = useState('1')
+  const [trashholdMessage, setTrashholdMessage] = useState('')
   const addressInfo = useGetAddress(lastClickedNode)
 
-  useEffect(() => {
-    if (rawData) {
-      setData(rawData)
+  const fetchAndUpdateGraph = async (address: string) => {
+    const txs = await fetchTxs(address)
+    if (txs.length > Number(displayTrashhold)) {
+      setTrashholdMessage(`Node txs(${txs.length}) is too big for display!`)
+      return
     }
-  }, [rawData])
+    setTrashholdMessage('')
+    setGraph((graph) => concatGraphs(graph, getGraphFromTxs(txs, id, address)))
+  }
 
   useEffect(() => {
-    if (data) {
-      setGraph(getGraphFromData(data, id, lastClickedNode))
+    if (id) {
+      fetchAndUpdateGraph(id)
+    }
+  }, [id])
+
+  useEffect(() => {
+    const address = lastClickedNode || id
+    if (displayTrashhold && address) {
+      fetchAndUpdateGraph(address)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data])
+  }, [displayTrashhold])
 
   const events = {
-    select: async function (event: { nodes: [] }) {
+    select: async function (event: { nodes?: [] }) {
       const node = event.nodes?.at(0)
       if (node) {
         setLastClickedNode(node)
-        const res = await fetchTxs(node)()
-        if (res.length > Number(displayTrashhold)) {
-          console.log(`Node txs(${res.length}) is too big for display!`)
-          return
-        }
-        if (res) {
-          setData((d) => [...d, ...res])
-        }
+        setTrashholdMessage('')
+        fetchAndUpdateGraph(node)
       }
     },
   }
@@ -81,6 +82,11 @@ export const Visualize = () => {
           <span>tx count: {addressInfo.transactionCount || 'unknown'}</span>
           <br />
         </div>
+        {trashholdMessage && (
+          <div className="side-address-info">
+            <span>{trashholdMessage}</span>
+          </div>
+        )}
       </div>
     </div>
   )
