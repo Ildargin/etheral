@@ -1,48 +1,21 @@
-import { useCallback, useEffect, useState } from 'react'
+import { fetchTxs, getGraphFromData } from './visualize.api'
+import type { Tx } from './visualize.api'
+import { useEffect, useState } from 'react'
 import type { ChangeEvent } from 'react'
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import { Button, Graph, Input } from '../../components'
+import type { GraphType } from '../../components'
 import { useGetAddress } from '../../hooks'
 import { trimAddress } from '../../utils'
 import './page.scss'
 
-type Tx = {
-  time: number
-  txfrom: string
-  txto: string
-  gas: string
-  gasPrice: string
-  block: number
-  txhash: string
-  value: string
-  contract_to: string
-  status: boolean
-  contract_value: string
-}
-
-const fetchTxs = (id?: string) => (): Promise<Tx[]> => {
-  return fetch(`http://localhost:3033/tx?address=${id}`).then((res) => res.json())
-}
-
-const getUniqueAddresses = (arr: Tx[]) =>
-  arr.reduce((acc, el) => {
-    const items = []
-    if (!acc.includes(el.txto)) {
-      items.push(el.txto)
-    }
-    if (!acc.includes(el.txfrom)) {
-      items.push(el.txfrom)
-    }
-    return acc.concat(items)
-  }, [] as string[])
-
 export const Visualize = () => {
   const { id } = useParams()
-  const [lastClickedNode, setLastClickedNode] = useState(id || '')
   const { data: rawData } = useQuery('txs', fetchTxs(id))
   const [data, setData] = useState<Tx[]>([])
-  const [graph, setGraph] = useState({ nodes: {}, edges: {} })
+  const [lastClickedNode, setLastClickedNode] = useState(id || '')
+  const [graph, setGraph] = useState<GraphType>({ nodes: [], edges: [] })
   const [displayTrashhold, setDisplayTrashhold] = useState('100')
 
   const addressInfo = useGetAddress(lastClickedNode)
@@ -53,41 +26,12 @@ export const Visualize = () => {
     }
   }, [rawData])
 
-  const getNodeColorByHash = useCallback(
-    (hash: string) => {
-      const isRoot = id === hash
-      const isLastClicked = lastClickedNode === hash
-      if (isRoot) {
-        return '#E0AFA0'
-      }
-      if (isLastClicked) {
-        return 'red'
-      }
-      return '#fafafa'
-    },
-    [id, lastClickedNode],
-  )
-
   useEffect(() => {
-    if (!data) {
-      return
+    if (data) {
+      setGraph(getGraphFromData(data, id, lastClickedNode))
     }
-    const nodes = getUniqueAddresses(data).map((el) => ({
-      id: el,
-      label: trimAddress(el, 2),
-      color: getNodeColorByHash(el),
-    }))
-
-    const edges = data.map((node) => ({
-      from: node.txfrom,
-      to: node.txto,
-    }))
-
-    setGraph({
-      nodes,
-      edges,
-    })
-  }, [data, id, getNodeColorByHash])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data])
 
   const events = {
     select: async function (event: { nodes: [] }) {
@@ -113,7 +57,7 @@ export const Visualize = () => {
         <div>
           <span>
             Display nodes Trashhold
-            <br /> (total displayed: {data.length})
+            <br /> (total displayed: {graph.nodes.length})
           </span>
         </div>
         <div>

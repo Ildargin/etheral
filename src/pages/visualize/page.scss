@@ -1,5 +1,9 @@
 @use 'src/variables' as v;
 
+.graph {
+  height: 100%;
+}
+
 .graph-container {
   display: flex;
   width: 98vw;

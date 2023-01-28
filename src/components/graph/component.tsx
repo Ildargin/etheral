@@ -1,5 +1,6 @@
+import type { Events, GraphType } from './component.types'
 //@ts-expect-error(no-types)
-import { Graph as GraphVis } from 'react-graph-vis'
+import GraphVis from 'react-graph-vis'
 import { v4 as uuidv4 } from 'uuid'
 import './component.scss'
 
@@ -37,7 +38,13 @@ const options = {
   },
 }
 
-// eslint-disable-next-line  @typescript-eslint/no-explicit-any
-export const Graph = (props: any) => {
-  return <GraphVis className="graph" key={uuidv4()} options={options} {...props} />
+type Props = {
+  events: Events
+  graph: GraphType
+}
+
+export const Graph = ({ graph, events }: Props): JSX.Element => {
+  return (
+    <GraphVis className="graph" key={uuidv4()} options={options} graph={graph} events={events} />
+  )
 }
