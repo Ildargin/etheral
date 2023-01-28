@@ -24,7 +24,8 @@
   },
   "nano-staged": {
     "*.{js,ts,jsx,tsx}": [
-      "prettier -w ."
+      "prettier -w",
+      "eslint --ext js,ts,jsx,tsx"
     ]
   },
   "devDependencies": {
