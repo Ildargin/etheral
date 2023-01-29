@@ -24,11 +24,15 @@ export const TxTooltip = ({ transaction }: { transaction: Transaction }) => {
           <div className="txbit-tooltip-top">
             <div>
               <span className="txbit-tooltip-field">From</span>
-              <div className="txbit-tooltip-value">{trimAddress(transaction.from)}</div>
+              <div className="txbit-tooltip-value">
+                {transaction.from && trimAddress(transaction.from)}
+              </div>
             </div>
             <div>
               <span className="txbit-tooltip-field">To</span>
-              <div className="txbit-tooltip-value">{trimAddress(transaction.to)}</div>
+              <div className="txbit-tooltip-value">
+                {transaction.to && trimAddress(transaction.to)}
+              </div>
             </div>
           </div>
           <div className="txbit-tooltip-bottom">

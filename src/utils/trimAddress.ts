@@ -5,9 +5,5 @@
  * @param {number} chars Number of characters to keep on each side.
  * @returns {string} Trimmed Ethereum address.
  */
-export const trimAddress = (address?: string, chars = 4): string | null => {
-  if (address) {
-    return address.slice(0, 2 + chars) + '...' + address.slice(-chars)
-  }
-  return null
-}
+export const trimAddress = (address: string, chars = 4): string =>
+  address.slice(0, 2 + chars) + '...' + address.slice(-chars)

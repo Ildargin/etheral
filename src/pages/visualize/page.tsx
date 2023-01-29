@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from 'react'
 import type { ChangeEvent } from 'react'
 import { useParams } from 'react-router-dom'
+import type { GraphData, GraphEvents } from 'react-vis-graph-wrapper'
 import { concatGraphs, fetchTxs, getGraphFromTxs, getUniqueTxAddresses } from '../../api'
 import { Button, Graph, Input } from '../../components'
-import type { GraphType } from '../../components'
 import { useGetAddress } from '../../hooks'
 import { trimAddress } from '../../utils'
 import './page.scss'
@@ -11,7 +11,7 @@ import './page.scss'
 export const Visualize = () => {
   const { id } = useParams()
   const [lastClickedNode, setLastClickedNode] = useState('')
-  const [graph, setGraph] = useState<GraphType>({ nodes: [], edges: [] })
+  const [graph, setGraph] = useState<GraphData>({ nodes: [], edges: [] })
   const [displayTrashhold, setDisplayTrashhold] = useState('100')
   const [trashholdMessage, setTrashholdMessage] = useState('')
   const addressInfo = useGetAddress(lastClickedNode)
@@ -46,7 +46,7 @@ export const Visualize = () => {
     updateWithTrashhold()
   }, [updateWithTrashhold])
 
-  const events = {
+  const events: GraphEvents = {
     select: async function (event: { nodes?: [] }) {
       const node = event.nodes?.at(0)
       if (node) {

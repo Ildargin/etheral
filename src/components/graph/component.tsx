@@ -1,8 +1,5 @@
-import type { Events, GraphType } from './component.types'
-import { useMemo } from 'react'
-//@ts-expect-error(no-types)
-import GraphVis from 'react-graph-vis'
-import { v4 as uuidv4 } from 'uuid'
+import GraphVis from 'react-vis-graph-wrapper'
+import type { GraphData, GraphEvents } from 'react-vis-graph-wrapper'
 import './component.scss'
 
 const options = {
@@ -40,12 +37,10 @@ const options = {
 }
 
 type Props = {
-  events: Events
-  graph: GraphType
+  events: GraphEvents
+  graph: GraphData
 }
 
 export const Graph = ({ graph, events }: Props): JSX.Element => {
-  const key = useMemo(uuidv4, [graph])
-
-  return <GraphVis className="graph" key={key} options={options} graph={graph} events={events} />
+  return <GraphVis className="graph" options={options} graph={graph} events={events} />
 }

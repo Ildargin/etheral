@@ -1,5 +1,5 @@
 import type { Tx } from './api.types'
-import type { GraphType } from '../../components'
+import type { GraphData } from 'react-vis-graph-wrapper'
 import { trimAddress } from '../../utils'
 
 //This is special API for graph visualization
@@ -35,7 +35,7 @@ const getNodeColorByHash = (hash: string, root?: string, lastClicked?: string) =
   return '#fafafa'
 }
 
-export const getGraphFromTxs = (txs: Tx[], root?: string, lastClicked?: string): GraphType => {
+export const getGraphFromTxs = (txs: Tx[], root?: string, lastClicked?: string): GraphData => {
   const nodes = getUniqueTxAddresses(txs).map((el) => ({
     id: el,
     label: trimAddress(el, 2),
@@ -51,11 +51,11 @@ export const getGraphFromTxs = (txs: Tx[], root?: string, lastClicked?: string):
   return { nodes, edges }
 }
 
-const getUniqueItemsById = <T extends { id: number | string }>(arr1: T[], arr2: T[]): T[] => {
+const getUniqueItemsById = <T extends { id?: number | string }>(arr1: T[], arr2: T[]): T[] => {
   return arr1.filter((node) => !arr2.some((node2) => node2.id === node.id)).concat(arr2)
 }
 
-export const concatGraphs = (g1: GraphType, g2: GraphType): GraphType => {
+export const concatGraphs = (g1: GraphData, g2: GraphData): GraphData => {
   return {
     nodes: getUniqueItemsById(g1.nodes, g2.nodes),
     edges: getUniqueItemsById(g1.edges, g2.edges),
