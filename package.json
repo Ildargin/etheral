@@ -60,6 +60,7 @@
     },
     "dependencies": {
         "@types/uuid": "9.0.0",
+        "clipboard": "2.0.11",
         "clsx": "^1.1.1",
         "cytoscape": "3.23.0",
         "cytoscape-dom-node": "1.1.1",

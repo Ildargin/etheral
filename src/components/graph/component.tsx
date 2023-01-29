@@ -41,6 +41,6 @@ type Props = {
   graph: GraphData
 }
 
-export const Graph = ({ graph, events }: Props): JSX.Element => {
+export const Graph = ({ graph, events }: Props) => {
   return <GraphVis className="graph" options={options} graph={graph} events={events} />
 }

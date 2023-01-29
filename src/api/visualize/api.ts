@@ -5,8 +5,14 @@ import { trimAddress } from '../../utils'
 //This is special API for graph visualization
 const ApiRoot = 'http://localhost:3033'
 
-export const fetchTxs = async (id?: string): Promise<Tx[]> => {
+export const fetchTxsByUserId = async (id?: string): Promise<Tx[]> => {
   const res = await fetch(`${ApiRoot}/tx?address=${id}`)
+  const data = await res.json()
+  return data
+}
+
+export const fetchTxById = async (id: number): Promise<Tx> => {
+  const res = await fetch(`${ApiRoot}/tx?search=${id}`)
   const data = await res.json()
   return data
 }

@@ -1,54 +1,63 @@
-@use 'src/variables' as v;
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+@use "src/variables" as v;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap");
 
 :root {
-  --color-lightest: #dcdce2;
-  --color-light: #b9b9c3;
-  --color-light-dull: #59596e;
-  --color-darkish: #39394c;
-  --color-dark: #181825;
-  --color-dark-hover: #2a2a3c;
-  --color-darker: #222231;
-  --color-darkest: #191927;
-  --color-loading-base: #1d1d2c;
-  --color-loading-highlight: #232331;
-  --color-calm-blue: #2d5da1;
+    --color-lightest: #dcdce2;
+    --color-light: #b9b9c3;
+    --color-light-dull: #59596e;
+    --color-darkish: #39394c;
+    --color-dark: #181825;
+    --color-dark-hover: #2a2a3c;
+    --color-darker: #222231;
+    --color-darkest: #191927;
+    --color-loading-base: #1d1d2c;
+    --color-loading-highlight: #232331;
+    --color-calm-blue: #2d5da1;
 }
 
 body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 html * {
-  font-family: Roboto, Arial, sans-serif;
+    font-family: Roboto, Arial, sans-serif;
 }
 
 #app {
-  min-height: 100vh;
+    min-height: 100vh;
 
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: v.$lightest;
-  background-color: v.$darkest;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: v.$lightest;
+    background-color: v.$darkest;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-  // background: url('../assets/images/background.svg') no-repeat center center fixed;
+    // background: url('../assets/images/background.svg') no-repeat center center fixed;
 }
 
 a {
-  color: v.$lightest;
-  text-decoration: none;
-  transition: color 0.4s;
+    color: v.$lightest;
+    text-decoration: none;
+    transition: color 0.4s;
 
-  &:hover {
-    color: v.$light;
-  }
+    &:hover {
+        color: v.$light;
+    }
 }
 
 span {
-  font-weight: v.$w-light;
+    font-weight: v.$w-light;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
 }
