@@ -11,7 +11,7 @@ export const fetchTxs = async (id?: string): Promise<Tx[]> => {
   return data
 }
 
-const getUniqueTxAddresses = (arr: Tx[]) =>
+export const getUniqueTxAddresses = (arr: Tx[]) =>
   arr.reduce((acc, el) => {
     const items = []
     if (!acc.includes(el.txto)) {

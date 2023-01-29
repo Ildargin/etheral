@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import type { ChangeEvent } from 'react'
 import { useParams } from 'react-router-dom'
-import { concatGraphs, fetchTxs, getGraphFromTxs } from '../../api'
+import { concatGraphs, fetchTxs, getGraphFromTxs, getUniqueTxAddresses } from '../../api'
 import { Button, Graph, Input } from '../../components'
 import type { GraphType } from '../../components'
 import { useGetAddress } from '../../hooks'
@@ -12,33 +12,39 @@ export const Visualize = () => {
   const { id } = useParams()
   const [lastClickedNode, setLastClickedNode] = useState('')
   const [graph, setGraph] = useState<GraphType>({ nodes: [], edges: [] })
-  const [displayTrashhold, setDisplayTrashhold] = useState('1')
+  const [displayTrashhold, setDisplayTrashhold] = useState('100')
   const [trashholdMessage, setTrashholdMessage] = useState('')
   const addressInfo = useGetAddress(lastClickedNode)
 
-  const fetchAndUpdateGraph = async (address: string) => {
-    const txs = await fetchTxs(address)
-    if (txs.length > Number(displayTrashhold)) {
-      setTrashholdMessage(`Node txs(${txs.length}) is too big for display!`)
-      return
-    }
-    setTrashholdMessage('')
-    setGraph((graph) => concatGraphs(graph, getGraphFromTxs(txs, id, address)))
-  }
+  const fetchAndUpdateGraph = useCallback(
+    async (address: string) => {
+      const txs = await fetchTxs(address)
+      if (getUniqueTxAddresses(txs).length > Number(displayTrashhold)) {
+        setTrashholdMessage(`Node txs(${txs.length}) is too big for display!`)
+        return
+      }
+      setTrashholdMessage('')
+      setGraph((graph) => concatGraphs(graph, getGraphFromTxs(txs, id, address)))
+    },
+    [displayTrashhold, id],
+  )
 
   useEffect(() => {
     if (id) {
       fetchAndUpdateGraph(id)
     }
-  }, [id])
+  }, [id, fetchAndUpdateGraph])
 
-  useEffect(() => {
+  const updateWithTrashhold = useCallback(() => {
     const address = lastClickedNode || id
     if (displayTrashhold && address) {
       fetchAndUpdateGraph(address)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [displayTrashhold])
+  }, [displayTrashhold, lastClickedNode, id, fetchAndUpdateGraph])
+
+  useEffect(() => {
+    updateWithTrashhold()
+  }, [updateWithTrashhold])
 
   const events = {
     select: async function (event: { nodes?: [] }) {
