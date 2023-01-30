@@ -1,8 +1,8 @@
-import { Avatar } from '../../components/web3'
 import { utils } from 'ethers'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import {
+  Avatar,
   DataBox,
   DataBoxContents,
   DataBoxRow,
@@ -12,8 +12,8 @@ import {
   RedirectButton,
   SearchBox,
   Skeleton,
-} from '../../components'
-import { useChainData, useToast } from '../../contexts'
+} from '@components'
+import { useChainData, useToast } from '@contexts'
 import './page.scss'
 
 export const Address = () => {

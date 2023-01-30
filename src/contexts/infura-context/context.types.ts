@@ -1,5 +1,5 @@
-import type { BlockWithTransactions } from '@ethersproject/abstract-provider'
 import type { providers } from 'ethers'
+import type { BlockWithTransactions } from '@ethersproject/abstract-provider'
 
 export type IInfuraContext = {
   blocks: Map<number, BlockWithTransactions>

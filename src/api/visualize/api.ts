@@ -1,6 +1,6 @@
-import type { Tx } from './api.types'
 import type { GraphData } from 'react-vis-graph-wrapper'
-import { trimAddress } from '../../utils'
+import { trimAddress } from '@utils'
+import type { Tx } from './api.types'
 
 //This is special API for graph visualization
 const ApiRoot = 'http://localhost:3033'

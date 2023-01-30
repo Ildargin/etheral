@@ -2,15 +2,15 @@ import { useCallback, useEffect, useState } from 'react'
 import type { ChangeEvent } from 'react'
 import { useParams } from 'react-router-dom'
 import type { GraphData, GraphEvents } from 'react-vis-graph-wrapper'
-import type { Tx } from '../../api'
+import type { Tx } from '@api'
 import {
   concatGraphs,
   fetchTxById,
   fetchTxsByUserId,
   getGraphFromTxs,
   getUniqueTxAddresses,
-} from '../../api'
-import { AddressWidget, Container, Graph, Input, TxWidget } from '../../components'
+} from '@api'
+import { AddressWidget, Container, Graph, Input, TxWidget } from '@components'
 import './page.scss'
 
 export const Visualize = () => {

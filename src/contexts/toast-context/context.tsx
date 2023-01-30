@@ -1,7 +1,7 @@
-import type { IToastContext, Toast } from './context.types'
 import { createContext, useCallback, useContext, useRef, useState } from 'react'
-import { ToastContainer } from '../../components'
+import { ToastContainer } from '@components'
 import './context.scss'
+import type { IToastContext, Toast } from './context.types'
 
 const ToastContext = createContext<IToastContext>(undefined as unknown as IToastContext)
 

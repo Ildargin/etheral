@@ -1,6 +1,5 @@
-import { Blocks, Transactions } from '../../components/web3'
-import { BlockWidget, FlexBox, SearchBox } from '../../components'
-import { InfuraProvider } from '../../contexts'
+import { BlockWidget, Blocks, FlexBox, SearchBox, Transactions } from '@components'
+import { InfuraProvider } from '@contexts'
 
 export const App = () => {
   return (

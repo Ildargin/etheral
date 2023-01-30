@@ -1,6 +1,6 @@
-import type { IChainDataContext } from './context.types'
 import { providers } from 'ethers'
 import { createContext, useContext, useEffect, useState } from 'react'
+import type { IChainDataContext } from './context.types'
 
 const ChainDataContext = createContext<IChainDataContext>(undefined as unknown as IChainDataContext)
 

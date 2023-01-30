@@ -1,4 +1,4 @@
-import { FlexBox, Skeleton } from '../../../components'
+import { FlexBox, Skeleton } from '@components'
 
 type Props = React.HTMLAttributes<HTMLDivElement> & {
   after?: string

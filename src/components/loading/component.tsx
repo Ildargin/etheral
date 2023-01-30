@@ -1,4 +1,4 @@
-import { FlexBox } from '../../components'
+import { FlexBox } from '@components'
 import './component.scss'
 
 type Props = Omit<React.HTMLAttributes<HTMLDivElement>, 'width' & 'height'> & {

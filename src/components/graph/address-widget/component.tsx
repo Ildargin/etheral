@@ -1,10 +1,7 @@
 import Clipboard from 'clipboard'
-import { useGetAddress } from '../../../hooks'
-import { trimAddress } from '../../../utils'
-import { Button } from '../../button'
-import { Container } from '../../container'
-import { FlexBox } from '../../flex-box'
-import { RedirectButton } from '../../redirect-button'
+import { Button, Container, FlexBox, RedirectButton } from '@components'
+import { useGetAddress } from '@hooks'
+import { trimAddress } from '@utils'
 
 const addressId = 'address-widget-address'
 const onCopy = () => new Clipboard(`#${addressId}`)

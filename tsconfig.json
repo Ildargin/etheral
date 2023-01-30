@@ -10,7 +10,15 @@
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true
+    "baseUrl": "./",
+    "paths": {
+      "@api": ["./src/api"],
+      "@components": ["./src/components"],
+      "@contexts": ["./src/contexts"],
+      "@hooks": ["./src/hooks"],
+      "@pages": ["./src/pages"],
+      "@utils": ["./src/utils"]
+    }
   },
   "include": ["**/src/**/*.ts", "**/src/**/*.tsx"]
 }

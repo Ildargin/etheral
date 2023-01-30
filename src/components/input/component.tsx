@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { FlexBox } from '../../components'
+import { FlexBox } from '@components'
 import './component.scss'
 
 type Props = React.HTMLAttributes<HTMLInputElement> & {

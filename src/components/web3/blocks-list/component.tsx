@@ -1,5 +1,5 @@
-import { FlexBox, Skeleton } from '../../../components'
-import { useInfura } from '../../../contexts'
+import { FlexBox, Skeleton } from '@components'
+import { useInfura } from '@contexts'
 import { BlockItem } from './block-item'
 
 export const Blocks = () => {

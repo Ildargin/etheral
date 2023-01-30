@@ -1,8 +1,8 @@
-import type { IWalletContext, WrappedProvider } from './context.types'
 import { providers } from 'ethers'
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react'
-import { useToast } from '../../contexts'
-import { trimAddress } from '../../utils'
+import { useToast } from '@contexts'
+import { trimAddress } from '@utils'
+import type { IWalletContext, WrappedProvider } from './context.types'
 
 const WalletContext = createContext<IWalletContext>(undefined as unknown as IWalletContext)
 

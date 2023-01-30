@@ -1,4 +1,4 @@
-import { FlexBox } from '../../components'
+import { FlexBox } from '@components'
 
 export const Maintenance = () => {
   return (

@@ -1,10 +1,10 @@
 /* eslint-disable import/no-named-as-default-member */
-import type { TransactionResponse } from '@ethersproject/abstract-provider'
 import { utils } from 'ethers'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
-import { FlexBox } from '../../../../components'
-import { trimTransaction } from '../../../../utils'
+import { FlexBox } from '@components'
+import type { TransactionResponse } from '@ethersproject/abstract-provider'
+import { trimTransaction } from '@utils'
 import './component.scss'
 
 type Props = React.HTMLAttributes<HTMLDivElement> & {

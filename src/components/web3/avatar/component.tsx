@@ -1,6 +1,6 @@
 import { memo, useState } from 'react'
 import Jazzicon, { jsNumberForAddress } from 'react-jazzicon'
-import { useWallet } from '../../../contexts'
+import { useWallet } from '@contexts'
 
 type Props = {
   address: string

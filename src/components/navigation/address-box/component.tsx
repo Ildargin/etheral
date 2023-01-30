@@ -1,8 +1,7 @@
-import { Avatar } from '../../../components/web3'
 import { memo } from 'react'
-import { Button } from '../../../components'
-import { useWallet } from '../../../contexts'
-import { trimAddress } from '../../../utils'
+import { Avatar, Button } from '@components'
+import { useWallet } from '@contexts'
+import { trimAddress } from '@utils'
 
 type Props = React.HTMLAttributes<HTMLButtonElement> & {
   address: string

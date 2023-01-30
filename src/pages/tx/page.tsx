@@ -1,14 +1,9 @@
-import { Avatar } from '../../components/web3'
-import type {
-  Block as IBlock,
-  TransactionReceipt as IReceipt,
-  TransactionResponse as ITransaction,
-} from '@ethersproject/abstract-provider'
 import { utils } from 'ethers'
 import moment from 'moment'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import {
+  Avatar,
   DataBox,
   DataBoxContents,
   DataBoxRow,
@@ -17,9 +12,14 @@ import {
   Loading,
   PageTitle,
   SearchBox,
-} from '../../components'
-import { useChainData, useToast } from '../../contexts'
-import { parseEther, trimAddress } from '../../utils'
+} from '@components'
+import { useChainData, useToast } from '@contexts'
+import type {
+  Block as IBlock,
+  TransactionReceipt as IReceipt,
+  TransactionResponse as ITransaction,
+} from '@ethersproject/abstract-provider'
+import { parseEther, trimAddress } from '@utils'
 
 export const Tx = () => {
   const { chainData } = useChainData()

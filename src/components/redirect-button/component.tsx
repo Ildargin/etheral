@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { Button } from '../button'
+import { Button } from '@components'
 
 type Props = React.HTMLAttributes<HTMLButtonElement> & { link: string }
 type Event = React.MouseEvent<HTMLButtonElement, MouseEvent>

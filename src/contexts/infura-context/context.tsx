@@ -1,8 +1,8 @@
-import type { IInfuraContext } from './context.types'
-import type { BlockWithTransactions } from '@ethersproject/abstract-provider'
 import { providers } from 'ethers'
 import { createContext, useCallback, useContext, useEffect, useState } from 'react'
-import { useChainData } from '../../contexts'
+import { useChainData } from '@contexts'
+import type { BlockWithTransactions } from '@ethersproject/abstract-provider'
+import type { IInfuraContext } from './context.types'
 
 const InfuraContext = createContext<IInfuraContext>(undefined as unknown as IInfuraContext)
 

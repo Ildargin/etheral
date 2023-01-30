@@ -1,8 +1,8 @@
-import type { Toast } from '../../contexts/toast-context/context.types'
-import type { ToastContainerProps } from './component.types'
 import { createRef } from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import { Button } from '../../components'
+import { Button } from '@components'
+import type { Toast } from '@contexts'
+import type { ToastContainerProps } from './component.types'
 
 export const ToastContainer = ({ messages, handleClose }: ToastContainerProps) => (
   <TransitionGroup className="toast-container">

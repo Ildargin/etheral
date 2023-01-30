@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { FlexBox, Skeleton } from '../../components'
+import { FlexBox, Skeleton } from '@components'
 import './component.scss'
 
 type Props = React.HTMLAttributes<HTMLSpanElement> & {

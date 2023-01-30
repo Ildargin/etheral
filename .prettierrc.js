@@ -7,7 +7,7 @@ module.exports = {
   semi: false,
   singleQuote: true,
   arrowParens: 'always',
-  importOrder: ['^[^a-zA-Z](/|../|./)*[^/.]+(?!.scss)$', '^.*.scss$'],
+  importOrder: ['<THIRD_PARTY_MODULES>', '^@', '^[./]'],
   importOrderSeparation: false,
   importOrderSortSpecifiers: true,
 }

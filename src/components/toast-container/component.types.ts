@@ -1,4 +1,4 @@
-import type { Toast } from '../../contexts/toast-context/context.types'
+import type { Toast } from '@contexts'
 
 export type ToastContainerProps = {
   messages: Toast[]

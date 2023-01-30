@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { useChainData } from '../../contexts'
-import { parseEther } from '../../utils'
+import { useChainData } from '@contexts'
+import { parseEther } from '@utils'
 
 export const useGetAddress = (id: string) => {
   const [isContract, setIsContract] = useState(false)

@@ -1,13 +1,9 @@
-import { Avatar } from '../../components/web3'
-import type {
-  Block as IBlock,
-  TransactionResponse as ITransaction,
-} from '@ethersproject/abstract-provider'
 import { utils } from 'ethers'
 import moment from 'moment'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import {
+  Avatar,
   DataBox,
   DataBoxContents,
   DataBoxRow,
@@ -22,9 +18,13 @@ import {
   TableContents,
   TableHeader,
   TableRow,
-} from '../../components'
-import { useChainData, useToast } from '../../contexts'
-import { averageFeeOfTxs, trimAddress, valueOfTxs } from '../../utils'
+} from '@components'
+import { useChainData, useToast } from '@contexts'
+import type {
+  Block as IBlock,
+  TransactionResponse as ITransaction,
+} from '@ethersproject/abstract-provider'
+import { averageFeeOfTxs, trimAddress, valueOfTxs } from '@utils'
 
 // eslint-disable-next-line import/no-named-as-default-member
 moment.relativeTimeThreshold('ss', 0)

@@ -1,2 +1,2 @@
 export * from './context'
-export type { IToastContext } from './context.types'
+export type { IToastContext, Toast } from './context.types'

@@ -1,9 +1,9 @@
-import type { BlockWithTransactions, TransactionResponse } from '@ethersproject/abstract-provider'
 import moment from 'moment'
 import { memo } from 'react'
 import { Link } from 'react-router-dom'
-import { FlexBox } from '../../../../components'
-import { valueOfTxs } from '../../../../utils'
+import { FlexBox } from '@components'
+import type { BlockWithTransactions, TransactionResponse } from '@ethersproject/abstract-provider'
+import { valueOfTxs } from '@utils'
 import './component.scss'
 
 type Props = React.HTMLAttributes<HTMLDivElement> & {

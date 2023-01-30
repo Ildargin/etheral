@@ -1,7 +1,7 @@
 import type { Transaction } from 'ethers'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { parseEther, trimAddress } from '../../../utils'
+import { parseEther, trimAddress } from '@utils'
 import './component.scss'
 
 export const TxTooltip = ({ transaction }: { transaction: Transaction }) => {

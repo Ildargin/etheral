@@ -1,8 +1,8 @@
-import { Container, RedirectButton } from '../../'
 import { formatEther } from 'ethers/lib/utils'
-import type { Tx } from '../../../api'
-import { stringifyTxTime } from '../../../api'
-import { trimTransaction } from '../../../utils'
+import type { Tx } from '@api'
+import { stringifyTxTime } from '@api'
+import { Container, RedirectButton } from '@components'
+import { trimTransaction } from '@utils'
 
 type Props = { tx?: Tx }
 

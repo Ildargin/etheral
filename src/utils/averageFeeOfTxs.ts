@@ -1,5 +1,5 @@
-import type { TransactionResponse } from '@ethersproject/abstract-provider'
 import { BigNumber, utils } from 'ethers'
+import type { TransactionResponse } from '@ethersproject/abstract-provider'
 
 /**
  * Retrieve the average fee for a list of transactions.

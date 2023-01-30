@@ -1,5 +1,5 @@
-import type { TransactionResponse } from '@ethersproject/abstract-provider'
 import { BigNumber, utils } from 'ethers'
+import type { TransactionResponse } from '@ethersproject/abstract-provider'
 
 /**
  * Retrieve the total value of a list of transactions.

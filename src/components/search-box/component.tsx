@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { FlexBox, Input } from '../../components'
-import { useToast } from '../../contexts'
-import { Button } from '../button'
+import { Button, FlexBox, Input } from '@components'
+import { useToast } from '@contexts'
 import './component.scss'
 
 type Props = React.HTMLAttributes<HTMLDivElement>

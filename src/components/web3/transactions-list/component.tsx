@@ -1,6 +1,6 @@
 import moment from 'moment'
-import { FlexBox, Skeleton } from '../../../components'
-import { useInfura } from '../../../contexts'
+import { FlexBox, Skeleton } from '@components'
+import { useInfura } from '@contexts'
 import { TransactionItem } from './transaction-item'
 
 export const Transactions = () => {

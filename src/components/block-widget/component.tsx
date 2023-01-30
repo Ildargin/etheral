@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom'
-import { useInfura } from '../../contexts'
-import { Skeleton } from '../skeleton'
-import { TxTooltip } from './tx-tooltip'
+import { Skeleton } from '@components'
+import { useInfura } from '@contexts'
 import './component.scss'
+import { TxTooltip } from './tx-tooltip'
 
 const MaxBits = 22 * 10
 
