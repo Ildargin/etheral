@@ -1,12 +1,12 @@
-@use "src/variables" as v;
+@use 'src/variables' as v;
 
 .container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    margin: 10px 0;
-    padding: 10px;
-    background-color: v.$darker;
-    border: 1px solid v.$darkish;
-    border-radius: 10px;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: v.$darker;
+  border: 1px solid v.$darkish;
+  border-radius: 10px;
 }

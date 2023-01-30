@@ -67,3 +67,8 @@ export const concatGraphs = (g1: GraphData, g2: GraphData): GraphData => {
     edges: getUniqueItemsById(g1.edges, g2.edges),
   }
 }
+
+export const stringifyTxTime = (time: number) => {
+  const date = new Date(time * 1000)
+  return date.toLocaleString()
+}

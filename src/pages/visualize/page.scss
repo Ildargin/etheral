@@ -1,25 +1,25 @@
-@use "src/variables" as v;
+@use 'src/variables' as v;
 
 .graph {
-    height: 100%;
+  height: 100%;
 }
 
 .graph-container {
-    display: flex;
-    width: 98vw;
-    height: 85vh;
-    border: 1px solid v.$darkish;
-    border-radius: 10px;
+  display: flex;
+  width: 98vw;
+  height: 85vh;
+  border: 1px solid v.$darkish;
+  border-radius: 10px;
 }
 
 .side {
-    width: 300px;
-    padding: 20px;
-    border: 1px solid v.$darkish;
-    border-radius: 10px;
-    background-color: v.$darkish;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid v.$darkish;
+  border-radius: 10px;
+  background-color: v.$darkish;
 
-    & > div {
-        margin: 10px 0;
-    }
+  & > div {
+    margin: 10px 0;
+  }
 }

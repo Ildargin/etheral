@@ -1,15 +1,15 @@
 import { Avatar } from '../../components/web3'
 import { utils } from 'ethers'
 import { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import {
-  Button,
   DataBox,
   DataBoxContents,
   DataBoxRow,
   DataBoxTitle,
   FlexBox,
   Loading,
+  RedirectButton,
   SearchBox,
   Skeleton,
 } from '../../components'
@@ -17,7 +17,6 @@ import { useChainData, useToast } from '../../contexts'
 import './page.scss'
 
 export const Address = () => {
-  const navigate = useNavigate()
   const { chainData } = useChainData()
   const { sendToast } = useToast()
   const { id } = useParams()
@@ -28,10 +27,6 @@ export const Address = () => {
 
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | boolean>(false)
-
-  const navigateToGraph = () => {
-    navigate(`/visualize/${id}`)
-  }
 
   /**
    * Fetch the address if a user inputs an ENS domain, otherwise parse the address.
@@ -151,7 +146,7 @@ export const Address = () => {
           <>
             <Avatar address={address} diameter={24} />
             <span className="address-text">{address}</span>
-            <Button onClick={() => navigateToGraph()}>visualize</Button>
+            <RedirectButton link={`/visualize/${id}`}>visualize</RedirectButton>
           </>
         ) : (
           <>

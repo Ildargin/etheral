@@ -9,7 +9,7 @@ type Props = React.HTMLAttributes<HTMLButtonElement> & {
 }
 
 const Address = memo(({ address, ...rest }: Props) => (
-  <Button style={{ margin: 0, padding: '7px 15px', cursor: 'initial' }} {...rest}>
+  <Button style={{ padding: '7px 15px', cursor: 'initial' }} {...rest}>
     <Avatar address={address} />
     {trimAddress(address)}
   </Button>
@@ -21,7 +21,7 @@ export const AddressBox = (rest: React.HTMLAttributes<HTMLButtonElement>) => {
   return address ? (
     <Address address={address} {...rest} />
   ) : (
-    <Button style={{ margin: 0, padding: '7px 15px' }} onClick={() => connect()} {...rest}>
+    <Button style={{ padding: '7px 15px' }} onClick={() => connect()} {...rest}>
       Connect Wallet
     </Button>
   )
